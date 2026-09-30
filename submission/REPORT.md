@@ -5,12 +5,12 @@
 - Họ tên: Dương Hà Đức Anh (theo tên thư mục; học viên kiểm tra lại dấu).
 - MSSV: `2A202602977`; lớp: K4-L3B.
 - Project Langfuse: `day13-k4-l3b-2A202602977`, ID `cmunietei0iegad0cr62wi5kf` ([project](https://cloud.langfuse.com/project/cmunietei0iegad0cr62wi5kf)).
-- Repository URL: [K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps](https://github.com/duonghaducanh/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps), do học viên cung cấp. Chưa push thay đổi lần này hoặc nộp LMS.
+- Repository URL: [K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps](https://github.com/duonghaducanh/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps), do học viên cung cấp. Commit cuối được xác nhận trên GitHub sau lần push này; học viên vẫn cần tự nộp URL/SHA trên LMS.
 - Commit SHA: xem `git log -1 --format=%H` ở bản local. Thư mục ban đầu là bản tải về, không có `.git`; đã fetch origin/main từ repository cá nhân để giữ lịch sử gốc, không tạo lịch sử baseline giả.
 - Challenge ID: `day13-k4-l3b-monitoring-llmops-v1`; file riêng do học viên cung cấp đã copy nguyên byte vào `config/challenge.json`. Cả file gốc và bản config được gitignore; SHA-256 `f8a1b15bfb62f5c91160cb27665d4efbb9ec89b2f8b6d5ec69e9e874443e0d4f`. Không công bố query/seed riêng.
 - Báo cáo tổng hợp dữ liệu đo thực tế bằng AI assistant theo yêu cầu; học viên cần đọc, xác nhận và bổ sung phần tự đánh giá trước khi nộp.
 
-**Trạng thái:** CP0/CP1 đã có evidence; code CP2, trace/prompt và dashboard chạy được. Ảnh trace/prompt hiện là browser capture của viewer dựng từ API export thật, **không phải ảnh UI Langfuse**. Vì rubric yêu cầu ảnh trong project Langfuse, vẫn cần bổ sung ảnh UI. CP3 chính thức đã chạy, có metric/log và waterfall từ API thật, đã kiểm chứng recovery. Ảnh trực tiếp UI Langfuse và bước push/nộp của CP4 vẫn còn thiếu.
+**Trạng thái:** CP0/CP1 đã có evidence; code CP2, trace/prompt và dashboard chạy được. Ảnh ở `evidence/langfuse-ui/` là ảnh trực tiếp UI Langfuse cho trace list, waterfall/metadata, prompt versions và rollback; các ảnh `*-api.png` bên dưới vẫn là browser capture của viewer dựng từ API export thật, không phải UI Langfuse. CP3 chính thức đã chạy, có metric/log và trace từ API thật, đã kiểm chứng recovery.
 
 ## 2. Evidence index
 
@@ -27,6 +27,9 @@ Mỗi checkpoint đã lưu output và chụp ngay trong quá trình làm. Các �
 | Waterfall và metadata | [API viewer](evidence/07-trace-waterfall-api.png), [observations export](evidence/cp2/observations.json) |
 | Prompt v1/v2 và rollback | [version/trace đối chiếu](evidence/09-10-prompt-rollback-api.png), [JSON](evidence/cp2/prompt-trace-links.json) |
 | Ảnh ngay khi promote / rollback | [promote](evidence/cp2/prompt-promoted.png), [rollback](evidence/cp2/prompt-rollback.png) |
+| Langfuse UI: trace list | [ảnh](evidence/langfuse-ui/traces-list.png) |
+| Langfuse UI: waterfall CP3 và metadata | [ảnh](evidence/langfuse-ui/waterfall%2Bmetadata%20CP3.png) |
+| Langfuse UI: prompt version và trạng thái trước/sau rollback | [version](evidence/langfuse-ui/version-prompt.png), [trước rollback](evidence/langfuse-ui/before%20rollback.png), [sau rollback](evidence/langfuse-ui/after%20rollback.png) |
 | CP2 dashboard có dữ liệu | [ảnh](evidence/11-dashboard-overview.png), [snapshot metrics](evidence/11-dashboard-overview.json) |
 | Dashboard bản cuối | [ảnh](evidence/cp4/dashboard-final.png), [metrics](evidence/cp4/dashboard-final.json) |
 | CP3 chính thức: tổng hợp metric | [ảnh theo pha và ngưỡng challenge](evidence/cp3-official/12-metric-comparison.png), [run/hashes](evidence/cp3-official/run.json) |
@@ -154,9 +157,9 @@ Baseline có **2156 ms ngoài hai child span**, retrieval chỉ 1 ms và generat
 - [x] ≥10 traces, child observations, prompt v1/v2 và rollback thật được xác nhận qua API.
 - [x] Dashboard runtime 6 panel có dữ liệu, đơn vị, UTC, ngưỡng; SLO và 3 alert/runbook.
 - [x] Evidence lưu theo checkpoint, dùng link tương đối.
-- [ ] Chụp trực tiếp UI Langfuse: trace list, waterfall/metadata và prompt versions/labels; không chụp API Keys.
+- [x] Chụp trực tiếp UI Langfuse: trace list, waterfall/metadata và prompt versions/labels; không chụp API Keys.
 - [x] Chạy challenge chính thức, lưu metric/log/trace API đúng challenge ID và xác nhận recovery. Ảnh UI Langfuse vẫn theo mục riêng ở trên.
 - [x] Đã nhận và điền repository URL cá nhân.
-- [ ] Đối chiếu commit SHA cuối trên remote; chạy lại checks nếu có thay đổi.
+- [x] Đối chiếu commit SHA cuối trên remote; chạy lại checks nếu có thay đổi.
 - [ ] Học viên kiểm tra report, xác nhận thông tin và tự đánh giá.
-- [ ] Push repo cá nhân và nộp URL/SHA trên LMS/Codelabs.
+- [x] Push repo cá nhân lên GitHub; [ ] nộp URL/SHA trên LMS/Codelabs.
