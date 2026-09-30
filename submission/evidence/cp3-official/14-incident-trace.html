@@ -1,0 +1,74 @@
+<!doctype html><meta charset="utf-8"><style>body{background:#0b1220;color:#e4edf7;font:16px Segoe UI,Arial;margin:30px}h1{font-size:26px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #354860;padding:10px;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45;background:#142238;padding:20px}a{color:#83caff}svg text{fill:white;font:16px monospace}</style><h1>CP3 official - actual Langfuse API waterfall</h1><p>Project: day13-k4-l3b-2A202602977 · cmunietei0iegad0cr62wi5kf</p><p>Source: Langfuse Observations API v2 export. Local evidence viewer, not a Langfuse UI screenshot. API keys redacted.</p><h2>Trace 7105b57d1e3d8f51e2f6d11f7af8eb26</h2><p>UTC start: 2026-09-30T03:40:41.649000+00:00 · total 2658.0 ms · correlation: req-92e64a82</p><svg viewBox="0 0 1300 180"><text x="5" y="30">lab-agent-run</text><rect x="260.00" y="8" width="850.00" height="30" fill="#55b5f4"/><text x="1130" y="30">2658.0 ms</text><text x="5" y="90">  └ retrieval</text><rect x="260.00" y="68" width="800.11" height="30" fill="#55b5f4"/><text x="1130" y="90">2502.0 ms</text><text x="5" y="150">  └ generation</text><rect x="1060.11" y="128" width="49.89" height="30" fill="#55b5f4"/><text x="1130" y="150">156.0 ms</text></svg><pre>{
+  &quot;root_metadata&quot;: {
+    &quot;correlation_id&quot;: &quot;req-92e64a82&quot;,
+    &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+    &quot;feature&quot;: &quot;monitoring&quot;,
+    &quot;prompt_fetch_error&quot;: &quot;&quot;,
+    &quot;prompt_source&quot;: &quot;langfuse&quot;,
+    &quot;prompt_version&quot;: 1,
+    &quot;prompt_label&quot;: &quot;production&quot;,
+    &quot;prompt_name&quot;: &quot;day13-chat&quot;,
+    &quot;doc_count&quot;: 1
+  },
+  &quot;observations&quot;: [
+    {
+      &quot;name&quot;: &quot;lab-agent-run&quot;,
+      &quot;id&quot;: &quot;fee3f8631a1efed9&quot;,
+      &quot;parentObservationId&quot;: null,
+      &quot;traceId&quot;: &quot;7105b57d1e3d8f51e2f6d11f7af8eb26&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:40:41.649000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:40:44.307000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: null,
+      &quot;output&quot;: null
+    },
+    {
+      &quot;name&quot;: &quot;retrieval&quot;,
+      &quot;id&quot;: &quot;d9a27cc69e7b2fa1&quot;,
+      &quot;parentObservationId&quot;: &quot;fee3f8631a1efed9&quot;,
+      &quot;traceId&quot;: &quot;7105b57d1e3d8f51e2f6d11f7af8eb26&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:40:41.649000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:40:44.151000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: null,
+      &quot;output&quot;: null
+    },
+    {
+      &quot;name&quot;: &quot;generation&quot;,
+      &quot;id&quot;: &quot;ce837d1bdfded4ce&quot;,
+      &quot;parentObservationId&quot;: &quot;fee3f8631a1efed9&quot;,
+      &quot;traceId&quot;: &quot;7105b57d1e3d8f51e2f6d11f7af8eb26&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:40:44.151000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:40:44.307000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+      &quot;promptName&quot;: &quot;day13-chat&quot;,
+      &quot;promptVersion&quot;: 1,
+      &quot;usageDetails&quot;: {
+        &quot;input&quot;: 35,
+        &quot;output&quot;: 155,
+        &quot;total&quot;: 190
+      },
+      &quot;costDetails&quot;: {
+        &quot;input&quot;: 0.000105,
+        &quot;output&quot;: 0.002325,
+        &quot;total&quot;: 0.00243
+      },
+      &quot;input&quot;: null,
+      &quot;output&quot;: null
+    }
+  ]
+}</pre>

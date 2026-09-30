@@ -1,0 +1,16 @@
+{
+  "phase": "baseline",
+  "start_utc": "2026-09-30T03:40:36.257973+00:00",
+  "end_utc": "2026-09-30T03:40:39.138199+00:00",
+  "received": 5,
+  "succeeded": 5,
+  "failed": 0,
+  "latency_p50_ms": 2311.0,
+  "latency_p95_ms": 2390.4,
+  "latency_p99_ms": 2406.08,
+  "ttft_p95_ms": 50.0,
+  "cost_total_usd": 0.011355,
+  "error_rate_pct": 0.0,
+  "retrieval_success_pct": 100.0,
+  "quality_mean": 0.8400000000000001
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "recovery",
+  "start_utc": "2026-09-30T03:40:48.645028+00:00",
+  "end_utc": "2026-09-30T03:40:49.102006+00:00",
+  "received": 5,
+  "succeeded": 5,
+  "failed": 0,
+  "latency_p50_ms": 152.0,
+  "latency_p95_ms": 152.0,
+  "latency_p99_ms": 152.0,
+  "ttft_p95_ms": 50.0,
+  "cost_total_usd": 0.008445000000000001,
+  "error_rate_pct": 0.0,
+  "retrieval_success_pct": 100.0,
+  "quality_mean": 0.8400000000000001
+}

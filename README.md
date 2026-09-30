@@ -276,6 +276,8 @@ Script `prompts` tạo/reuse baseline/candidate, thực hiện promote rồi rol
 
 Practice riêng: `python scripts/practice_evidence.py` chạy `tool_fail`, chụp metric/log, tắt scenario trong `finally`, kiểm tra recovery. Đây không phải challenge chính thức. Ảnh giao diện Langfuse, challenge chính thức và URL/commit nộp bài được theo dõi trong `submission/REPORT.md`.
 
+CP3 chính thức đã có evidence trong `submission/evidence/cp3-official/`. Khi Coach cấp file, copy nguyên byte vào `config/challenge.json`; không commit file gốc hoặc bản config. Script `python scripts/challenge_evidence.py workload` chạy baseline/challenge/recovery với input gốc và concurrency 5, giữ toàn bộ log và tắt incident trong `finally`. Sau khi Langfuse ingest, dùng các action `trace` và `compare` để đối chiếu correlation ID và cùng query giữa các pha. Script từ chối ghi đè một `run.json` đã có để giữ evidence cũ.
+
 Nếu pytest gặp lỗi quyền thư mục tạm trên Windows:
 
 ```powershell

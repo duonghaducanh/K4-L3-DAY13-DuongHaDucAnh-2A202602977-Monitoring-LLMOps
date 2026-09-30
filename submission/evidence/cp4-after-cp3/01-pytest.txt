@@ -1,0 +1,3 @@
+Command: python -m pytest -q --basetemp=.pytest_tmp/cp3-final -o cache_dir=.pytest_tmp/cache-cp3-final
+............................                                             [100%]
+28 passed in 2.04s

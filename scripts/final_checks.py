@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -10,7 +11,7 @@ from dotenv import dotenv_values
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-DEST = ROOT / "submission/evidence/cp4"
+DEST = ROOT / os.getenv("EVIDENCE_CHECK_DIR", "submission/evidence/cp4")
 values = dotenv_values(ROOT / ".env")
 secrets = [values.get(k) for k in ("LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY") if values.get(k)]
 failures = []
@@ -33,10 +34,14 @@ for target in re.findall(r"\]\(([^)]+)\)", report.read_text(encoding="utf-8")):
 
 # Inputs are synthetic test fixtures; check that they never reached logs or traces.
 samples = [json.loads(line) for line in (ROOT / "data/sample_queries.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+if (ROOT / "config/challenge.json").exists():
+    from app.challenge import load_challenge
+    samples.extend(load_challenge(ROOT / "config/challenge.json").queries)
 from app.pii import PII_PATTERNS
 pii = {match.group() for q in samples for pattern in PII_PATTERNS.values() for match in re.finditer(pattern, q["message"])}
 pii.update(["demo@example.org", "0901234567", "012345678901", "4111 1111 1111 1111"])
 runtime_paths = [ROOT / "data/logs.jsonl", ROOT / "submission/evidence/cp2/observations.json"]
+runtime_paths.extend((ROOT / "submission/evidence/cp3-official").glob("*trace.json"))
 for path in runtime_paths:
     text = path.read_text(encoding="utf-8")
     if any(value in text for value in pii):

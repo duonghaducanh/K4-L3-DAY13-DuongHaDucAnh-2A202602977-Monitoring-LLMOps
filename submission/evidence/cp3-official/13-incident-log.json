@@ -1,0 +1,25 @@
+{
+  "challenge_id": "day13-k4-l3b-monitoring-llmops-v1",
+  "selection_after_metric": "2026-09-30T03:40:46.330625+00:00",
+  "symptom": "cost/quality comparison; inspect measured deltas",
+  "log": {
+    "service": "api",
+    "latency_ms": 2657,
+    "ttft_ms": 50,
+    "tokens_in": 35,
+    "tokens_out": 155,
+    "cost_usd": 0.00243,
+    "quality_score": 0.8,
+    "tool_name": "retrieval",
+    "tool_success": true,
+    "event": "response_sent",
+    "user_id_hash": "189d0a182d4e",
+    "feature": "monitoring",
+    "correlation_id": "req-92e64a82",
+    "env": "dev",
+    "model": "claude-sonnet-4-5",
+    "session_id": "k4-l3b-challenge-s03",
+    "level": "info",
+    "ts": "2026-09-30T03:40:44.319758Z"
+  }
+}

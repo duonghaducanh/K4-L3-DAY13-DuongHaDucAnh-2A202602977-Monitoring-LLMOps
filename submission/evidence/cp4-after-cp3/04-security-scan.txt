@@ -1,0 +1,2 @@
+Command: python scripts/final_checks.py
+Checked 141 text files, 6 synthetic PII values, report links; failures=0

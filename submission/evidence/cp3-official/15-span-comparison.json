@@ -1,0 +1,50 @@
+{
+  "challenge_id": "day13-k4-l3b-monitoring-llmops-v1",
+  "challenge_threshold_ms": 2000,
+  "same_input_matched_by_session_and_user_hash": true,
+  "comparison": [
+    {
+      "phase": "baseline",
+      "correlation_id": "req-d1f0e3b5",
+      "trace_id": "99604b4b614dbaf8819683e995fccbee",
+      "duration_ms": {
+        "generation": 151.0,
+        "retrieval": 1.0,
+        "lab-agent-run": 2308.0
+      },
+      "root_time_outside_children_ms": 2156.0,
+      "prompt_source": "langfuse",
+      "prompt_fetch_error": "",
+      "prompt_version": 1
+    },
+    {
+      "phase": "incident",
+      "correlation_id": "req-92e64a82",
+      "trace_id": "7105b57d1e3d8f51e2f6d11f7af8eb26",
+      "duration_ms": {
+        "generation": 156.0,
+        "lab-agent-run": 2658.0,
+        "retrieval": 2502.0
+      },
+      "root_time_outside_children_ms": 0.0,
+      "prompt_source": "langfuse",
+      "prompt_fetch_error": "",
+      "prompt_version": 1
+    },
+    {
+      "phase": "recovery",
+      "correlation_id": "req-0e0c8379",
+      "trace_id": "62c1ebafde349b40543f43c239d6c9e9",
+      "duration_ms": {
+        "generation": 152.0,
+        "retrieval": 0.0,
+        "lab-agent-run": 154.0
+      },
+      "root_time_outside_children_ms": 2.0,
+      "prompt_source": "langfuse",
+      "prompt_fetch_error": "",
+      "prompt_version": 1
+    }
+  ],
+  "selection_note": "Initial baseline was also slow; compare span durations and recovery, not just incident/baseline ratio. Original run and initial heuristic retained."
+}

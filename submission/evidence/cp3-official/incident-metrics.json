@@ -1,0 +1,16 @@
+{
+  "phase": "incident",
+  "start_utc": "2026-09-30T03:40:41.383977+00:00",
+  "end_utc": "2026-09-30T03:40:44.346981+00:00",
+  "received": 5,
+  "succeeded": 5,
+  "failed": 0,
+  "latency_p50_ms": 2656.0,
+  "latency_p95_ms": 2657.0,
+  "latency_p99_ms": 2657.0,
+  "ttft_p95_ms": 50.0,
+  "cost_total_usd": 0.009885,
+  "error_rate_pct": 0.0,
+  "retrieval_success_pct": 100.0,
+  "quality_mean": 0.8400000000000001
+}

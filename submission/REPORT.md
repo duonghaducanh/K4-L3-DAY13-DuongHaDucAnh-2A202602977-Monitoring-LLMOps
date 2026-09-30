@@ -7,10 +7,10 @@
 - Project Langfuse: `day13-k4-l3b-2A202602977`, ID `cmunietei0iegad0cr62wi5kf` ([project](https://cloud.langfuse.com/project/cmunietei0iegad0cr62wi5kf)).
 - Repository URL: [K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps](https://github.com/duonghaducanh/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps), do học viên cung cấp. Chưa push thay đổi lần này hoặc nộp LMS.
 - Commit SHA: xem `git log -1 --format=%H` ở bản local. Thư mục ban đầu là bản tải về, không có `.git`; đã fetch origin/main từ repository cá nhân để giữ lịch sử gốc, không tạo lịch sử baseline giả.
-- Challenge ID: **chưa có**. Không có `config/challenge.json`; chỉ chạy practice, không tự tạo/thay thế challenge.
+- Challenge ID: `day13-k4-l3b-monitoring-llmops-v1`; file riêng do học viên cung cấp đã copy nguyên byte vào `config/challenge.json`. Cả file gốc và bản config được gitignore; SHA-256 `f8a1b15bfb62f5c91160cb27665d4efbb9ec89b2f8b6d5ec69e9e874443e0d4f`. Không công bố query/seed riêng.
 - Báo cáo tổng hợp dữ liệu đo thực tế bằng AI assistant theo yêu cầu; học viên cần đọc, xác nhận và bổ sung phần tự đánh giá trước khi nộp.
 
-**Trạng thái:** CP0/CP1 đã có evidence; code CP2, trace/prompt và dashboard chạy được. Ảnh trace/prompt hiện là browser capture của viewer dựng từ API export thật, **không phải ảnh UI Langfuse**. Vì rubric yêu cầu ảnh trong project Langfuse, vẫn cần bổ sung ảnh UI. CP3 chính thức và bước push/nộp của CP4 chưa hoàn thành.
+**Trạng thái:** CP0/CP1 đã có evidence; code CP2, trace/prompt và dashboard chạy được. Ảnh trace/prompt hiện là browser capture của viewer dựng từ API export thật, **không phải ảnh UI Langfuse**. Vì rubric yêu cầu ảnh trong project Langfuse, vẫn cần bổ sung ảnh UI. CP3 chính thức đã chạy, có metric/log và waterfall từ API thật, đã kiểm chứng recovery. Ảnh trực tiếp UI Langfuse và bước push/nộp của CP4 vẫn còn thiếu.
 
 ## 2. Evidence index
 
@@ -29,6 +29,13 @@ Mỗi checkpoint đã lưu output và chụp ngay trong quá trình làm. Các �
 | Ảnh ngay khi promote / rollback | [promote](evidence/cp2/prompt-promoted.png), [rollback](evidence/cp2/prompt-rollback.png) |
 | CP2 dashboard có dữ liệu | [ảnh](evidence/11-dashboard-overview.png), [snapshot metrics](evidence/11-dashboard-overview.json) |
 | Dashboard bản cuối | [ảnh](evidence/cp4/dashboard-final.png), [metrics](evidence/cp4/dashboard-final.json) |
+| CP3 chính thức: tổng hợp metric | [ảnh theo pha và ngưỡng challenge](evidence/cp3-official/12-metric-comparison.png), [run/hashes](evidence/cp3-official/run.json) |
+| CP3 chính thức: metric lúc incident | [snapshot ngay sau workload](evidence/cp3-official/incident-dashboard.png), [workload gốc](evidence/cp3-official/incident-workload.txt) |
+| CP3 chính thức: log | [ảnh](evidence/cp3-official/13-incident-log.png), [JSON](evidence/cp3-official/13-incident-log.json) |
+| CP3 chính thức: trace | [waterfall API](evidence/cp3-official/14-incident-trace.png), [observations thật](evidence/cp3-official/14-incident-trace.json) |
+| CP3 cùng query trước/trong/sau | [so sánh span](evidence/cp3-official/15-span-comparison.png), [JSON](evidence/cp3-official/15-span-comparison.json) |
+| CP3 recovery | [dashboard](evidence/cp3-official/recovery-dashboard.png), [5 HTTP 200](evidence/cp3-official/recovery-workload.txt) |
+| Kiểm tra sau CP3 | [tests](evidence/cp4-after-cp3/01-pytest.txt), [log validator](evidence/cp4-after-cp3/02-log-validator.txt), [dashboard validator](evidence/cp4-after-cp3/03-dashboard-validator.txt), [scan/source manifest](evidence/cp4-after-cp3/security-and-source-manifest.json) |
 | CP3 practice metric | [ảnh](evidence/cp3-practice/12-incident-metric.png), [JSON](evidence/cp3-practice/12-incident-metric.json) |
 | CP3 practice log | [ảnh](evidence/cp3-practice/13-incident-log.png), [JSON](evidence/cp3-practice/13-incident-log.json) |
 | CP3 practice trace | [ảnh API waterfall](evidence/cp3-practice/14-incident-trace.png), [JSON](evidence/cp3-practice/14-incident-trace.json) |
@@ -49,7 +56,7 @@ Mỗi checkpoint đã lưu output và chụp ngay trong quá trình làm. Các �
 | Traces | root starter chưa có child | ảnh CP2 có 15 trees đủ agent/retrieval/generation |
 | Prompt | chưa có managed prompt | v1/v2, promote v2, rollback v1, generation liên kết prompt thật |
 
-Snapshot cuối (60 phút, **bao gồm 10 request lỗi practice**, không xóa để làm đẹp số liệu): P50 154.00 ms, P95 2434.20 ms, P99 2463.40 ms; TTFT P95 50.00 ms. 45 requests, 10 failures, error rate 22.22%, retrieval success 77.78%. Cost $0.074823, input/output tokens 1271/4734, quality mean 0.846.
+Snapshot CP4 trước khi bổ sung challenge (60 phút, **bao gồm 10 request lỗi practice**, không xóa để làm đẹp số liệu): P50 154.00 ms, P95 2434.20 ms, P99 2463.40 ms; TTFT P95 50.00 ms. 45 requests, 10 failures, error rate 22.22%, retrieval success 77.78%. Cost $0.074823, input/output tokens 1271/4734, quality mean 0.846.
 
 ## 4. Logging và PII
 
@@ -103,7 +110,25 @@ Retrieval success lấy cả `response_sent` lẫn `request_failed` có tool out
 
 ### Challenge chính thức
 
-**Chưa thực hiện:** chưa có file riêng và thông tin mở challenge từ Lab Coach. Chưa có challenge ID/seed/query chính thức để xác nhận. Practice dưới đây không thay thế điểm challenge.
+Đã thực hiện với file chính thức `day13-k4-l3b-monitoring-llmops-v1`. Chạy đúng `python scripts/inject_incident.py` và `python scripts/load_test.py --challenge --concurrency 5`; cùng 5 query/seed gốc cho baseline, incident và recovery. Không sửa file riêng; hash và số lượng request ghi trong [run.json](evidence/cp3-official/run.json).
+
+1. **Metrics:** cửa sổ incident `2026-09-30T03:40:41.383977+00:00` → `2026-09-30T03:40:44.346981+00:00` UTC. P95 2657.00 ms, TTFT P95 50.00 ms; 5/5 HTTP 200, retrieval success 100%. Latency vượt ngưỡng challenge 2000 ms dù không có HTTP error. Snapshot dashboard được lưu trước khi chọn log.
+2. **Log:** `response_sent`, correlation ID `req-92e64a82`, latency khoảng 2657 ms. Payload query không đưa vào evidence công khai để giữ kín nội dung challenge.
+3. **Trace:** `7105b57d1e3d8f51e2f6d11f7af8eb26`, cùng correlation ID. Root 2658 ms, retrieval **2502 ms** (~94.1% thời gian), generation **156 ms**. Các span không báo ERROR: đây là latency incident.
+4. **Root cause:** retrieval bị chậm trong incident, không phải LLM generation hay lỗi HTTP. Sau khi đối chiếu span với [mock_rag.py](../app/mock_rag.py), nhánh inject `rag_slow` mô phỏng chờ 2.5 giây khớp thời gian retrieval đo được.
+5. **Fix đã làm:** tắt incident bằng `python scripts/inject_incident.py --disable`, giữ nguyên file challenge. Chạy lại cùng input/concurrency; 5/5 HTTP 200, P95 còn **152.00 ms**, TTFT 50.00 ms; health xác nhận tất cả incident tắt.
+6. **Preventive measure:** theo dõi retrieval duration riêng, thêm budget/timeout và integration test latency retrieval; thêm ngưỡng cảnh báo phù hợp nếu yêu cầu là 2000 ms. Rule HighLatencyP95 hiện tại dùng 3000 ms/5 phút nên **không khẳng định đã fire** trong incident ngắn này. Giữ contract/SLO chung 3000 ms nguyên trạng, phân biệt với threshold challenge.
+
+Baseline đầu tiên P95 2390.40 ms cũng cao. Heuristic ban đầu chỉ xét tỷ lệ incident/baseline nên chưa xác định rõ triệu chứng; output ban đầu vẫn giữ trong `run.json`, sau đó đối chiếu threshold challenge và recovery. Đã sửa script để các lần chạy sau xét cả threshold challenge, không chỉ tỷ lệ tăng. Không xóa kết quả baseline chậm.
+
+| Pha, cùng query | Correlation ID | Trace ID | Root ms | Retrieval ms | Generation ms |
+|---|---|---|---:|---:|---:|
+| baseline | `req-d1f0e3b5` | `99604b4b614dbaf8819683e995fccbee` | 2308 | 1 | 151 |
+| incident | `req-92e64a82` | `7105b57d1e3d8f51e2f6d11f7af8eb26` | 2658 | 2502 | 156 |
+| recovery | `req-0e0c8379` | `62c1ebafde349b40543f43c239d6c9e9` | 154 | 0 | 152 |
+
+Baseline có **2156 ms ngoài hai child span**, retrieval chỉ 1 ms và generation 151 ms; prompt_source=langfuse, version 1. Theo vị trí code, khoảng chờ này phù hợp với lần resolve/fetch prompt đầu tiên, nhưng **chưa có span riêng đo prompt fetch nên đây là suy luận, không khẳng định nguyên nhân đã được đo trực tiếp**. Incident lại nằm rõ ở retrieval 2502 ms, và sau recovery retrieval về 0 ms ở độ phân giải API. Cả ba request dùng prompt v1. So sánh này tránh quy toàn bộ baseline chậm cho retrieval hoặc nhầm rollback prompt là fix.
+
 
 ### Practice `tool_fail` đã thực hiện
 
@@ -121,7 +146,7 @@ Retrieval success lấy cả `response_sent` lẫn `request_failed` có tool out
 - Luồng điều tra: metric chỉ triệu chứng/khoảng UTC; log chọn request cụ thể; correlation ID nối sang trace; child span chỉ đúng bước lỗi. Không kết luận root cause từ metric đơn lẻ.
 - Version prompt giúp biết request dùng cấu hình nào và rollback mà không sửa code. Token/cost giúp phát hiện bloat; SLO/budget biến chất lượng thành ngưỡng vận hành có thể đo.
 - Hạn chế: bộ dữ liệu lab nhỏ, fake output/token; quality proxy không phải human evaluation; cost không phải billing; dashboard đọc toàn file phù hợp lab chứ chưa tối ưu lưu lượng production. Regex PII không bao phủ mọi dạng dữ liệu nhạy cảm.
-- Học viên tự bổ sung sau khi đọc/demo: điều học được, quyết định có thể bảo vệ trong Q&A. Không tự nhận đã nộp hoặc đã hoàn thành challenge.
+- Học viên tự bổ sung sau khi đọc/demo: điều học được, quyết định có thể bảo vệ trong Q&A. Không tự nhận đã nộp hoặc đã có ảnh UI Langfuse khi mới có API evidence.
 
 ## 9. Checklist trước khi nộp
 
@@ -130,7 +155,7 @@ Retrieval success lấy cả `response_sent` lẫn `request_failed` có tool out
 - [x] Dashboard runtime 6 panel có dữ liệu, đơn vị, UTC, ngưỡng; SLO và 3 alert/runbook.
 - [x] Evidence lưu theo checkpoint, dùng link tương đối.
 - [ ] Chụp trực tiếp UI Langfuse: trace list, waterfall/metadata và prompt versions/labels; không chụp API Keys.
-- [ ] Chạy challenge chính thức và bổ sung metric/log/trace đúng challenge ID.
+- [x] Chạy challenge chính thức, lưu metric/log/trace API đúng challenge ID và xác nhận recovery. Ảnh UI Langfuse vẫn theo mục riêng ở trên.
 - [x] Đã nhận và điền repository URL cá nhân.
 - [ ] Đối chiếu commit SHA cuối trên remote; chạy lại checks nếu có thay đổi.
 - [ ] Học viên kiểm tra report, xác nhận thông tin và tự đánh giá.

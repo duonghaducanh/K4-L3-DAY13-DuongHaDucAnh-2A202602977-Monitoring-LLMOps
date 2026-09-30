@@ -1,0 +1,50 @@
+<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e7edf6;font:16px Consolas,monospace;padding:30px}h1{font:26px Arial}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}small{color:#a1b6cd}</style><h1>CP3 official - same input, baseline vs incident vs recovery</h1><small>Saved runtime output: submission\evidence\cp3-official\15-span-comparison.json | Captured 2026-09-30T03:42:31.701639+00:00</small><pre>{
+  &quot;challenge_id&quot;: &quot;day13-k4-l3b-monitoring-llmops-v1&quot;,
+  &quot;challenge_threshold_ms&quot;: 2000,
+  &quot;same_input_matched_by_session_and_user_hash&quot;: true,
+  &quot;comparison&quot;: [
+    {
+      &quot;phase&quot;: &quot;baseline&quot;,
+      &quot;correlation_id&quot;: &quot;req-d1f0e3b5&quot;,
+      &quot;trace_id&quot;: &quot;99604b4b614dbaf8819683e995fccbee&quot;,
+      &quot;duration_ms&quot;: {
+        &quot;generation&quot;: 151.0,
+        &quot;retrieval&quot;: 1.0,
+        &quot;lab-agent-run&quot;: 2308.0
+      },
+      &quot;root_time_outside_children_ms&quot;: 2156.0,
+      &quot;prompt_source&quot;: &quot;langfuse&quot;,
+      &quot;prompt_fetch_error&quot;: &quot;&quot;,
+      &quot;prompt_version&quot;: 1
+    },
+    {
+      &quot;phase&quot;: &quot;incident&quot;,
+      &quot;correlation_id&quot;: &quot;req-92e64a82&quot;,
+      &quot;trace_id&quot;: &quot;7105b57d1e3d8f51e2f6d11f7af8eb26&quot;,
+      &quot;duration_ms&quot;: {
+        &quot;generation&quot;: 156.0,
+        &quot;lab-agent-run&quot;: 2658.0,
+        &quot;retrieval&quot;: 2502.0
+      },
+      &quot;root_time_outside_children_ms&quot;: 0.0,
+      &quot;prompt_source&quot;: &quot;langfuse&quot;,
+      &quot;prompt_fetch_error&quot;: &quot;&quot;,
+      &quot;prompt_version&quot;: 1
+    },
+    {
+      &quot;phase&quot;: &quot;recovery&quot;,
+      &quot;correlation_id&quot;: &quot;req-0e0c8379&quot;,
+      &quot;trace_id&quot;: &quot;62c1ebafde349b40543f43c239d6c9e9&quot;,
+      &quot;duration_ms&quot;: {
+        &quot;generation&quot;: 152.0,
+        &quot;retrieval&quot;: 0.0,
+        &quot;lab-agent-run&quot;: 154.0
+      },
+      &quot;root_time_outside_children_ms&quot;: 2.0,
+      &quot;prompt_source&quot;: &quot;langfuse&quot;,
+      &quot;prompt_fetch_error&quot;: &quot;&quot;,
+      &quot;prompt_version&quot;: 1
+    }
+  ],
+  &quot;selection_note&quot;: &quot;Initial baseline was also slow; compare span durations and recovery, not just incident/baseline ratio. Original run and initial heuristic retained.&quot;
+}</pre>
