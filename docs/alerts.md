@@ -1,60 +1,33 @@
-# Template Alert và Runbook
+﻿# Runbook vận hành
 
-Mỗi alert phải dựa trên triệu chứng người dùng hoặc SLO, không dựa trực tiếp vào tên implementation nội bộ.
-
-## Alert mẫu để tham khảo
-
-Ví dụ dưới đây minh họa mức độ cụ thể cần có. Học viên không cần copy nguyên, nhưng ba alert trong bài nộp nên rõ ràng tương tự: điều kiện là gì, kéo dài bao lâu, ảnh hưởng tới user ra sao và người trực cần kiểm tra gì trước.
-
-- Tên: `HighLatencyP95`
-- Severity: `warning`
-- Duration: `5m`
-- Kênh thông báo: Slack `#k4-l3b-alerts`
-- SLI/SLO liên quan: latency P95 của `response_sent.latency_ms`
-- Điều kiện và thời gian duy trì: `p95(latency_ms) > 3000ms` trong 5 phút
-- Ảnh hưởng tới người dùng: người dùng phải chờ lâu hơn trước khi nhận câu trả lời
-- Ba bước kiểm tra đầu tiên:
-  1. Mở dashboard latency để xác nhận P95/P99 và khoảng thời gian tăng.
-  2. Lọc `data/logs.jsonl` trong khoảng đó, lấy một `correlation_id` có `latency_ms` cao.
-  3. Mở trace cùng `correlation_id` trên Langfuse, so sánh các span chính để xác định bước nào bất thường.
-- Mitigation tạm thời: dựa trên evidence thực tế để rollback prompt, khôi phục cấu hình liên quan, tắt practice scenario hoặc giảm tải khi demo.
-- Owner: `student-<MSSV>`
+Ba rule trong [alert_rules.yaml](../config/alert_rules.yaml) là định nghĩa; chưa kết nối Slack hoặc bộ evaluator tự động. Owner: `student-2A202602977`; kênh dự kiến: Slack `#k4-l3b-alerts`. Cửa sổ 5 phút cần ít nhất 10 mẫu. Thiếu dữ liệu hiển thị N/A, không coi là healthy. Duration là thời gian điều kiện liên tục đúng.
 
 ## Alert 1
 
-- Tên:
-- Severity:
-- Duration:
-- Kênh thông báo: Slack
-- SLI/SLO liên quan:
-- Điều kiện và thời gian duy trì:
-- Ảnh hưởng tới người dùng:
-- Ba bước kiểm tra đầu tiên:
-- Mitigation tạm thời:
-- Owner:
+`HighLatencyP95` — warning: P95 >3000 ms trên cửa sổ 5 phút, liên tục 5 phút. Người dùng chờ câu trả lời lâu; request chậm tiêu tốn error budget.
+
+1. Mở `/dashboard`, xác nhận P50/P95/P99 và TTFT; ghi khoảng UTC.
+2. Lọc `response_sent` trong `data/logs.jsonl` cùng thời gian, lấy `correlation_id` có latency cao.
+3. Mở trace cùng ID, so sánh retrieval/generation, prompt version và token.
+
+Mitigation theo evidence: rollback label `production` nếu regression gắn prompt mới; khôi phục retrieval nếu retrieval chậm; giảm concurrency khi saturation. Trong practice, tắt scenario bằng `python scripts/inject_incident.py --scenario rag_slow --disable`. Chạy lại cùng workload; P95 phải về dưới ngưỡng và không tăng error. Theo dõi thêm ít nhất 5 phút.
 
 ## Alert 2
 
-- Tên:
-- Severity:
-- Duration:
-- Kênh thông báo: Slack
-- SLI/SLO liên quan:
-- Điều kiện và thời gian duy trì:
-- Ảnh hưởng tới người dùng:
-- Ba bước kiểm tra đầu tiên:
-- Mitigation tạm thời:
-- Owner:
+`HighRequestErrorRate` — critical: failed/received >2% trên cửa sổ 5 phút, liên tục 5 phút. Người dùng không nhận được câu trả lời; lỗi là bad events của SLO.
+
+1. Xác nhận error rate và breakdown trên dashboard; ghi UTC và số failed/received.
+2. Chọn một log `request_failed`, ghi `error_type` và `correlation_id`.
+3. Mở trace cùng ID, tìm observation ERROR; đối chiếu release/config vừa thay đổi.
+
+Mitigation: khôi phục dependency hoặc cấu hình đã xác định; rollback release/prompt khi có bằng chứng. Không retry vô hạn. Chạy lại workload, xác nhận HTTP 200 và error rate ≤2%, quan sát 5 phút. Giữ evidence các request lỗi ban đầu.
 
 ## Alert 3
 
-- Tên:
-- Severity:
-- Duration:
-- Kênh thông báo: Slack
-- SLI/SLO liên quan:
-- Điều kiện và thời gian duy trì:
-- Ảnh hưởng tới người dùng:
-- Ba bước kiểm tra đầu tiên:
-- Mitigation tạm thời:
-- Owner:
+`LowRetrievalSuccess` — warning: retrieval success <90% trên cửa sổ 5 phút, liên tục 5 phút. Tính cả `response_sent` và `request_failed` có `tool_name=retrieval`, `tool_success` khác null. Người dùng thiếu context hoặc request thất bại.
+
+1. Xác nhận retrieval success và error breakdown ở panel Errors cùng khoảng UTC.
+2. Lọc log có `tool_success=false`, lấy `correlation_id` và đối chiếu request thành công gần đó.
+3. Mở trace cùng ID, xem retrieval ERROR/duration; kiểm tra vector store và cấu hình timeout.
+
+Mitigation: khôi phục retrieval; chỉ dùng fallback khi nghiệp vụ cho phép. Trong practice dùng `python scripts/inject_incident.py --scenario tool_fail --disable`. Chạy lại workload, kiểm tra retrieval success ≥90% và không tăng latency/cost; theo dõi 5 phút. Thêm integration test dependency timeout trước khi triển khai thật.

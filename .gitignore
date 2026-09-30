@@ -9,3 +9,8 @@ data/audit.jsonl
 config/challenge.json
 .pytest_cache/
 .antigravity/
+.pytest_tmp/
+data/baseline-*.jsonl
+data/server-*.log
+data/*.pid
+data/browser-profile/

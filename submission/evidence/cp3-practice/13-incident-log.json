@@ -1,0 +1,39 @@
+{
+  "mode": "practice, not official challenge",
+  "scenario": "tool_fail",
+  "start_utc": "2026-09-30T03:14:20.723399+00:00",
+  "end_utc": "2026-09-30T03:14:22.509017+00:00",
+  "http_statuses": [
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500
+  ],
+  "error_rate_pct_60min": 28.571428571428573,
+  "retrieval_success_pct_60min": 71.42857142857143,
+  "selected_log": {
+    "service": "api",
+    "error_type": "RuntimeError",
+    "tool_name": "retrieval",
+    "tool_success": false,
+    "payload": {
+      "detail": "Vector store timeout",
+      "message_preview": "What is your refund policy? My email is [REDACTED_EMAIL]"
+    },
+    "event": "request_failed",
+    "feature": "qa",
+    "model": "claude-sonnet-4-5",
+    "correlation_id": "req-eb704ed9",
+    "user_id_hash": "2055254ee30a",
+    "env": "dev",
+    "session_id": "s01",
+    "level": "error",
+    "ts": "2026-09-30T03:14:20.902028Z"
+  }
+}

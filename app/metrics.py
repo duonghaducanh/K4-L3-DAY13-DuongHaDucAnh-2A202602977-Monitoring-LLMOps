@@ -33,6 +33,8 @@ def record_request(
 
 
 def record_error(error_type: str) -> None:
+    global TRAFFIC
+    TRAFFIC += 1
     ERRORS[error_type] += 1
 
 
@@ -58,5 +60,6 @@ def snapshot() -> dict:
         "tokens_in_total": sum(REQUEST_TOKENS_IN),
         "tokens_out_total": sum(REQUEST_TOKENS_OUT),
         "error_breakdown": dict(ERRORS),
+        "error_rate_pct": 100 * sum(ERRORS.values()) / TRAFFIC if TRAFFIC else None,
         "quality_avg": round(mean(QUALITY_SCORES), 4) if QUALITY_SCORES else 0.0,
     }

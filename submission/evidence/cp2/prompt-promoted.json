@@ -1,0 +1,17 @@
+{
+  "stage": "promoted",
+  "at": "2026-09-30T03:10:24.848312+00:00",
+  "label": "production",
+  "version_from_langfuse": 2,
+  "correlation_id": "req-5c5747c0",
+  "response": {
+    "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+    "correlation_id": "req-5c5747c0",
+    "latency_ms": 152,
+    "ttft_ms": 50,
+    "tokens_in": 49,
+    "tokens_out": 123,
+    "cost_usd": 0.001992,
+    "quality_score": 0.8
+  }
+}

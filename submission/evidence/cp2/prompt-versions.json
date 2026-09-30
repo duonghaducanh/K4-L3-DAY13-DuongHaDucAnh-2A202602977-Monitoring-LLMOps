@@ -1,0 +1,21 @@
+[
+  {
+    "name": "day13-chat",
+    "version": 1,
+    "labels": [
+      "baseline",
+      "production",
+      "latest"
+    ],
+    "prompt": "Feature={{feature}}\nDocs={{docs}}\nQuestion={{message}}"
+  },
+  {
+    "name": "day13-chat",
+    "version": 2,
+    "labels": [
+      "candidate",
+      "latest"
+    ],
+    "prompt": "Answer concisely using the supplied context.\nFeature={{feature}}\nDocs={{docs}}\nQuestion={{message}}"
+  }
+]

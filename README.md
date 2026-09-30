@@ -257,6 +257,32 @@ Không push bài làm trực tiếp lên repo đề bài và không dùng chung 
 
 ## Tài liệu trong repo
 
+### Chạy phần triển khai và thu evidence
+
+Dashboard runtime: mở `http://127.0.0.1:8000/dashboard` sau khi chạy API và workload. Nguồn dữ liệu là `data/logs.jsonl`, cửa sổ 60 phút, refresh 30 giây. `/metrics` là bộ đếm trong tiến trình nên reset khi restart; dashboard đọc log tồn tại trên đĩa.
+
+Các script evidence bổ sung (ảnh là browser capture của output hoặc dữ liệu API thật, không giả lập giao diện Langfuse):
+
+```powershell
+uv pip install --python .venv/Scripts/python.exe -r requirements-evidence.txt
+# Cần Microsoft Edge để Playwright chụp ảnh, không cần download browser riêng.
+.\.venv\Scripts\python.exe scripts/dashboard_snapshot.py
+.\.venv\Scripts\python.exe scripts/langfuse_evidence.py prompts
+.\.venv\Scripts\python.exe scripts/langfuse_evidence.py export
+.\.venv\Scripts\python.exe scripts/render_trace_evidence.py
+```
+
+Script `prompts` tạo/reuse baseline/candidate, thực hiện promote rồi rollback `production` về baseline và chạy request qua ASGI app. Chạy trên project lab cá nhân. Sau đó đợi Langfuse ingest dữ liệu rồi export; nếu trace chưa đủ, export lại. Script chỉ đọc observations có correlation ID khớp log hiện tại; API keys được che trước khi lưu evidence. API cũ `/traces` không dùng được với organization mới, nên dùng [Observations API v2](https://langfuse.com/docs/api-and-data-platform/features/public-api).
+
+Practice riêng: `python scripts/practice_evidence.py` chạy `tool_fail`, chụp metric/log, tắt scenario trong `finally`, kiểm tra recovery. Đây không phải challenge chính thức. Ảnh giao diện Langfuse, challenge chính thức và URL/commit nộp bài được theo dõi trong `submission/REPORT.md`.
+
+Nếu pytest gặp lỗi quyền thư mục tạm trên Windows:
+
+```powershell
+New-Item -ItemType Directory -Force .pytest_tmp
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=.pytest_tmp/run-new
+```
+
 - [SETUP.md](docs/SETUP.md): cài đặt và xử lý lỗi môi trường.
 - [CHECKPOINTS.md](docs/CHECKPOINTS.md): đầu ra và cách tự kiểm tra từng mốc.
 - [GUIDE.md](docs/GUIDE.md): gợi ý kỹ thuật khi bị kẹt.

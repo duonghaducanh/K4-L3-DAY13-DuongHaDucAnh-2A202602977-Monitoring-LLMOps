@@ -1,0 +1,43 @@
+<!doctype html><meta charset="utf-8"><style>body{background:#0b1220;color:#e4edf7;font:16px Segoe UI,Arial;margin:30px}h1{font-size:26px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #354860;padding:10px;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45;background:#142238;padding:20px}a{color:#83caff}svg text{fill:white;font:16px monospace}</style><h1>CP3 practice - Observations API waterfall</h1><p>Project: day13-k4-l3b-2A202602977 · cmunietei0iegad0cr62wi5kf</p><p>Source: Langfuse Observations API v2 export. Local evidence viewer, not a Langfuse UI screenshot. API keys redacted.</p><h2>Trace d81fe21e47a87e7b17c0b26025327975</h2><p>UTC start: 2026-09-30T03:14:20.898000+00:00 · total 3.0 ms · correlation: req-eb704ed9</p><svg viewBox="0 0 1300 120"><text x="5" y="30">lab-agent-run</text><rect x="260.00" y="8" width="850.00" height="30" fill="#ff7f7f"/><text x="1130" y="30">3.0 ms</text><text x="5" y="90">  └ retrieval</text><rect x="826.67" y="68" width="283.33" height="30" fill="#ff7f7f"/><text x="1130" y="90">1.0 ms</text></svg><pre>{
+  &quot;root_metadata&quot;: {
+    &quot;correlation_id&quot;: &quot;req-eb704ed9&quot;,
+    &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+    &quot;feature&quot;: &quot;qa&quot;
+  },
+  &quot;observations&quot;: [
+    {
+      &quot;name&quot;: &quot;lab-agent-run&quot;,
+      &quot;id&quot;: &quot;50f0e9b5f9e994bc&quot;,
+      &quot;parentObservationId&quot;: null,
+      &quot;traceId&quot;: &quot;d81fe21e47a87e7b17c0b26025327975&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:14:20.898000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:14:20.901000Z&quot;,
+      &quot;level&quot;: &quot;ERROR&quot;,
+      &quot;statusMessage&quot;: &quot;Vector store timeout&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: null,
+      &quot;output&quot;: null
+    },
+    {
+      &quot;name&quot;: &quot;retrieval&quot;,
+      &quot;id&quot;: &quot;19e6a0d57709e41b&quot;,
+      &quot;parentObservationId&quot;: &quot;50f0e9b5f9e994bc&quot;,
+      &quot;traceId&quot;: &quot;d81fe21e47a87e7b17c0b26025327975&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:14:20.900000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:14:20.901000Z&quot;,
+      &quot;level&quot;: &quot;ERROR&quot;,
+      &quot;statusMessage&quot;: &quot;Vector store timeout&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: &quot;{\&quot;query_preview\&quot;: \&quot;What is your refund policy? My email is [REDACTED_EMAIL]\&quot;}&quot;,
+      &quot;output&quot;: null
+    }
+  ]
+}</pre>

@@ -1,0 +1,75 @@
+<!doctype html><meta charset="utf-8"><style>body{background:#0b1220;color:#e4edf7;font:16px Segoe UI,Arial;margin:30px}h1{font-size:26px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #354860;padding:10px;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45;background:#142238;padding:20px}a{color:#83caff}svg text{fill:white;font:16px monospace}</style><h1>CP2 · Actual observation waterfall and metadata</h1><p>Project: day13-k4-l3b-2A202602977 · cmunietei0iegad0cr62wi5kf</p><p>Source: Langfuse Observations API v2 export. Local evidence viewer, not a Langfuse UI screenshot. API keys redacted.</p><h2>Trace 4e306145b0ff3d30cc644a1f8ca07e50</h2><p>UTC start: 2026-09-30T03:10:26.839000+00:00 · total 153.0 ms · correlation: req-e71f3455</p><svg viewBox="0 0 1300 180"><text x="5" y="30">lab-agent-run</text><rect x="260.00" y="8" width="850.00" height="30" fill="#55b5f4"/><text x="1130" y="30">153.0 ms</text><text x="5" y="90">  └ generation</text><rect x="265.56" y="68" width="844.44" height="30" fill="#55b5f4"/><text x="1130" y="90">152.0 ms</text><text x="5" y="150">  └ retrieval</text><rect x="265.56" y="128" width="2.00" height="30" fill="#55b5f4"/><text x="1130" y="150">0.0 ms</text></svg><pre>{
+  &quot;root_metadata&quot;: {
+    &quot;correlation_id&quot;: &quot;req-e71f3455&quot;,
+    &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+    &quot;feature&quot;: &quot;qa&quot;,
+    &quot;prompt_fetch_error&quot;: &quot;&quot;,
+    &quot;prompt_source&quot;: &quot;langfuse&quot;,
+    &quot;prompt_version&quot;: 1,
+    &quot;prompt_label&quot;: &quot;production&quot;,
+    &quot;prompt_name&quot;: &quot;day13-chat&quot;,
+    &quot;query_preview&quot;: &quot;Explain monitoring metrics logs traces&quot;,
+    &quot;doc_count&quot;: 1
+  },
+  &quot;observations&quot;: [
+    {
+      &quot;name&quot;: &quot;lab-agent-run&quot;,
+      &quot;id&quot;: &quot;1b8d2394a44f262c&quot;,
+      &quot;parentObservationId&quot;: null,
+      &quot;traceId&quot;: &quot;4e306145b0ff3d30cc644a1f8ca07e50&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:10:26.839000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:10:26.992000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: null,
+      &quot;output&quot;: null
+    },
+    {
+      &quot;name&quot;: &quot;generation&quot;,
+      &quot;id&quot;: &quot;e9c1b508fb4dc84b&quot;,
+      &quot;parentObservationId&quot;: &quot;1b8d2394a44f262c&quot;,
+      &quot;traceId&quot;: &quot;4e306145b0ff3d30cc644a1f8ca07e50&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:10:26.840000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:10:26.992000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+      &quot;promptName&quot;: &quot;day13-chat&quot;,
+      &quot;promptVersion&quot;: 1,
+      &quot;usageDetails&quot;: {
+        &quot;input&quot;: 38,
+        &quot;output&quot;: 153,
+        &quot;total&quot;: 191
+      },
+      &quot;costDetails&quot;: {
+        &quot;input&quot;: 0.000114,
+        &quot;output&quot;: 0.002295,
+        &quot;total&quot;: 0.002409
+      },
+      &quot;input&quot;: &quot;{\&quot;prompt_preview\&quot;: \&quot;Feature=qa Docs=Metrics detect incidents, logs identify affected requests, trace...\&quot;}&quot;,
+      &quot;output&quot;: &quot;{\&quot;answer_preview\&quot;: \&quot;Starter answer. You should improve this output logic and add better quality chec...\&quot;}&quot;
+    },
+    {
+      &quot;name&quot;: &quot;retrieval&quot;,
+      &quot;id&quot;: &quot;362239c1ba194764&quot;,
+      &quot;parentObservationId&quot;: &quot;1b8d2394a44f262c&quot;,
+      &quot;traceId&quot;: &quot;4e306145b0ff3d30cc644a1f8ca07e50&quot;,
+      &quot;startTime&quot;: &quot;2026-09-30T03:10:26.840000Z&quot;,
+      &quot;endTime&quot;: &quot;2026-09-30T03:10:26.840000Z&quot;,
+      &quot;level&quot;: &quot;DEFAULT&quot;,
+      &quot;statusMessage&quot;: &quot;&quot;,
+      &quot;model&quot;: &quot;&quot;,
+      &quot;promptName&quot;: &quot;&quot;,
+      &quot;promptVersion&quot;: null,
+      &quot;usageDetails&quot;: {},
+      &quot;costDetails&quot;: {},
+      &quot;input&quot;: &quot;{\&quot;query_preview\&quot;: \&quot;Explain monitoring metrics logs traces\&quot;}&quot;,
+      &quot;output&quot;: null
+    }
+  ]
+}</pre>

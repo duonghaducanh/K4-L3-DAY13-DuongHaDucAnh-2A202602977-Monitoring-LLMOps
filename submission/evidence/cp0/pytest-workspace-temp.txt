@@ -1,0 +1,64 @@
+.......E..EE.........E                                                   [100%]
+=================================== ERRORS ====================================
+___ ERROR at setup of test_chat_response_log_exposes_quality_for_dashboard ____
+
+self = WindowsPath('D:/VinCode/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main/.pytest_tmp/cp0')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\VinCode\\K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main\\.pytest_tmp\\cp0'
+
+C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py:1311: FileNotFoundError
+______ ERROR at setup of test_validator_rejects_panel_without_threshold _______
+
+self = WindowsPath('D:/VinCode/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main/.pytest_tmp/cp0')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\VinCode\\K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main\\.pytest_tmp\\cp0'
+
+C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py:1311: FileNotFoundError
+____ ERROR at setup of test_validator_rejects_panel_without_query_example _____
+
+self = WindowsPath('D:/VinCode/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main/.pytest_tmp/cp0')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\VinCode\\K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main\\.pytest_tmp\\cp0'
+
+C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py:1311: FileNotFoundError
+________ ERROR at setup of test_validator_detects_raw_vietnamese_phone ________
+
+self = WindowsPath('D:/VinCode/K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main/.pytest_tmp/cp0')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+>           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'D:\\VinCode\\K4-L3-DAY13-DuongHaDucAnh-2A202602977-Monitoring-LLMOps-main\\.pytest_tmp\\cp0'
+
+C:\Users\Admin\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\pathlib.py:1311: FileNotFoundError
+=========================== short test summary info ===========================
+ERROR tests/test_chat_observability.py::test_chat_response_log_exposes_quality_for_dashboard
+ERROR tests/test_dashboard_validator.py::test_validator_rejects_panel_without_threshold
+ERROR tests/test_dashboard_validator.py::test_validator_rejects_panel_without_query_example
+ERROR tests/test_validate_logs.py::test_validator_detects_raw_vietnamese_phone
+18 passed, 4 errors in 1.53s

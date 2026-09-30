@@ -3,6 +3,8 @@ from __future__ import annotations
 import time
 
 from .incidents import STATE
+from .tracing import observe, get_langfuse_client
+from .pii import summarize_text
 
 CORPUS = {
     "refund": ["Refunds are available within 7 days with proof of purchase."],
@@ -11,7 +13,9 @@ CORPUS = {
 }
 
 
+@observe(name="retrieval", as_type="retriever", capture_input=False, capture_output=False)
 def retrieve(message: str) -> list[str]:
+    get_langfuse_client().update_current_span(input={"query_preview": summarize_text(message)})
     if STATE["tool_fail"]:
         raise RuntimeError("Vector store timeout")
     if STATE["rag_slow"]:

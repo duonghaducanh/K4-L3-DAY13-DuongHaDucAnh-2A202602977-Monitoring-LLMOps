@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-30T03:14:26.777080+00:00",
+  "http_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "health": {
+    "ok": true,
+    "tracing_enabled": true,
+    "incidents": {
+      "rag_slow": false,
+      "tool_fail": false,
+      "cost_spike": false
+    }
+  }
+}

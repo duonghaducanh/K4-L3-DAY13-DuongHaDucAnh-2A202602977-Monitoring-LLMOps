@@ -1,0 +1,101 @@
+<!doctype html><meta charset="utf-8"><style>body{background:#0b1220;color:#e4edf7;font:16px Segoe UI,Arial;margin:30px}h1{font-size:26px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #354860;padding:10px;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45;background:#142238;padding:20px}a{color:#83caff}svg text{fill:white;font:16px monospace}</style><h1>CP2 · Prompt versions, promote and rollback verified by traces</h1><p>Project: day13-k4-l3b-2A202602977 · cmunietei0iegad0cr62wi5kf</p><p>Source: Langfuse Observations API v2 export. Local evidence viewer, not a Langfuse UI screenshot. API keys redacted.</p><pre>{
+  &quot;versions_at_creation&quot;: [
+    {
+      &quot;name&quot;: &quot;day13-chat&quot;,
+      &quot;version&quot;: 1,
+      &quot;labels&quot;: [
+        &quot;baseline&quot;,
+        &quot;production&quot;,
+        &quot;latest&quot;
+      ],
+      &quot;prompt&quot;: &quot;Feature={{feature}}\nDocs={{docs}}\nQuestion={{message}}&quot;
+    },
+    {
+      &quot;name&quot;: &quot;day13-chat&quot;,
+      &quot;version&quot;: 2,
+      &quot;labels&quot;: [
+        &quot;candidate&quot;,
+        &quot;latest&quot;
+      ],
+      &quot;prompt&quot;: &quot;Answer concisely using the supplied context.\nFeature={{feature}}\nDocs={{docs}}\nQuestion={{message}}&quot;
+    }
+  ],
+  &quot;lifecycle&quot;: [
+    {
+      &quot;stage&quot;: &quot;baseline&quot;,
+      &quot;at&quot;: &quot;2026-09-30T03:10:17.819196+00:00&quot;,
+      &quot;label&quot;: &quot;baseline&quot;,
+      &quot;version_from_langfuse&quot;: 1,
+      &quot;correlation_id&quot;: &quot;req-0a4ba7d9&quot;,
+      &quot;response&quot;: {
+        &quot;answer&quot;: &quot;Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.&quot;,
+        &quot;correlation_id&quot;: &quot;req-0a4ba7d9&quot;,
+        &quot;latency_ms&quot;: 156,
+        &quot;ttft_ms&quot;: 50,
+        &quot;tokens_in&quot;: 38,
+        &quot;tokens_out&quot;: 120,
+        &quot;cost_usd&quot;: 0.001914,
+        &quot;quality_score&quot;: 0.8
+      },
+      &quot;trace_id&quot;: &quot;46892bf3e6b8c05ae8103a9afc714260&quot;,
+      &quot;observed_prompt_version&quot;: 1
+    },
+    {
+      &quot;stage&quot;: &quot;candidate&quot;,
+      &quot;at&quot;: &quot;2026-09-30T03:10:22.460243+00:00&quot;,
+      &quot;label&quot;: &quot;candidate&quot;,
+      &quot;version_from_langfuse&quot;: 2,
+      &quot;correlation_id&quot;: &quot;req-52b27d42&quot;,
+      &quot;response&quot;: {
+        &quot;answer&quot;: &quot;Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.&quot;,
+        &quot;correlation_id&quot;: &quot;req-52b27d42&quot;,
+        &quot;latency_ms&quot;: 152,
+        &quot;ttft_ms&quot;: 50,
+        &quot;tokens_in&quot;: 49,
+        &quot;tokens_out&quot;: 168,
+        &quot;cost_usd&quot;: 0.002667,
+        &quot;quality_score&quot;: 0.8
+      },
+      &quot;trace_id&quot;: &quot;4f911a1d5c7bb175076fd6477732c913&quot;,
+      &quot;observed_prompt_version&quot;: 2
+    },
+    {
+      &quot;stage&quot;: &quot;promoted&quot;,
+      &quot;at&quot;: &quot;2026-09-30T03:10:24.848312+00:00&quot;,
+      &quot;label&quot;: &quot;production&quot;,
+      &quot;version_from_langfuse&quot;: 2,
+      &quot;correlation_id&quot;: &quot;req-5c5747c0&quot;,
+      &quot;response&quot;: {
+        &quot;answer&quot;: &quot;Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.&quot;,
+        &quot;correlation_id&quot;: &quot;req-5c5747c0&quot;,
+        &quot;latency_ms&quot;: 152,
+        &quot;ttft_ms&quot;: 50,
+        &quot;tokens_in&quot;: 49,
+        &quot;tokens_out&quot;: 123,
+        &quot;cost_usd&quot;: 0.001992,
+        &quot;quality_score&quot;: 0.8
+      },
+      &quot;trace_id&quot;: &quot;b67ac8255ba794dbdf40e2df001fd423&quot;,
+      &quot;observed_prompt_version&quot;: 2
+    },
+    {
+      &quot;stage&quot;: &quot;rollback&quot;,
+      &quot;at&quot;: &quot;2026-09-30T03:10:26.993147+00:00&quot;,
+      &quot;label&quot;: &quot;production&quot;,
+      &quot;version_from_langfuse&quot;: 1,
+      &quot;correlation_id&quot;: &quot;req-e71f3455&quot;,
+      &quot;response&quot;: {
+        &quot;answer&quot;: &quot;Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.&quot;,
+        &quot;correlation_id&quot;: &quot;req-e71f3455&quot;,
+        &quot;latency_ms&quot;: 151,
+        &quot;ttft_ms&quot;: 50,
+        &quot;tokens_in&quot;: 38,
+        &quot;tokens_out&quot;: 153,
+        &quot;cost_usd&quot;: 0.002409,
+        &quot;quality_score&quot;: 0.8
+      },
+      &quot;trace_id&quot;: &quot;4e306145b0ff3d30cc644a1f8ca07e50&quot;,
+      &quot;observed_prompt_version&quot;: 1
+    }
+  ]
+}</pre>
