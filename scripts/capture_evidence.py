@@ -13,6 +13,7 @@ def capture(source: Path, output: Path, title: str = "Lab evidence") -> None:
     else:
         raw = source.read_bytes()
         text = raw.decode("utf-16" if raw.startswith((b"\xff\xfe", b"\xfe\xff")) else "utf-8-sig")
+        text = text.replace("\r\n", "\n")
         page = source.with_suffix(".html")
         page.write_text(
             '<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e7edf6;'

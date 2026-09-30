@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-09-30T03:25:17.562840+00:00",
+  "checked_at_utc": "2026-09-30T03:25:48.957034+00:00",
   "text_files_checked": 112,
   "sample_pii_values_checked": 6,
   "failures": [],
@@ -21,7 +21,7 @@
     "app/schemas.py": "b5634e0ee72bb62da2f9a53cd0b8a50729a1c78d9d0dc13e368cdd58ae87ea9f",
     "app/tracing.py": "634d1af813c628110ba3129da1f7a4e116fb2a4f88440896176a65b82977a16a",
     "app/__init__.py": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb",
-    "scripts/capture_evidence.py": "ecacac39caed608546fa907aab0e288f92f51cced0003675036d1f5b05070911",
+    "scripts/capture_evidence.py": "524e8ab293574b7e20cf41d78a2e3d4248d9c6406e772f7ef696cccc1e86a39a",
     "scripts/dashboard_snapshot.py": "6b1e17b461d31e4c4299e81e6c2bb83f5d4520c13d0bd6f86d253af32a28982c",
     "scripts/final_checks.py": "b0bc9722dff4ff651c7c6e56aa5272a6ce400081add58b72ae8726a36277e17c",
     "scripts/inject_incident.py": "9b9bfe44389df4fb8e659f05f7dea95d29b902ad201d4e3def7a718f9cdba9f5",

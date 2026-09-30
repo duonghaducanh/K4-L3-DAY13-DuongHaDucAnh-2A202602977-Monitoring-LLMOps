@@ -1,47 +1,47 @@
-<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e7edf6;font:16px Consolas,monospace;padding:30px}h1{font:26px Arial}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}small{color:#a1b6cd}</style><h1>CP1 - Actual response headers and sanitized structured logs</h1><small>Saved runtime output: submission\evidence\cp1\pii-runtime.json | Captured 2026-09-30T03:04:30.203875+00:00</small><pre>{
-  &quot;synthetic_input_scrubbed_for_public_evidence&quot;: &quot;Email [REDACTED_EMAIL] phone [REDACTED_PHONE_VN] CCCD [REDACTED_CCCD] card [REDACTED_CREDIT_CARD]&quot;,
-  &quot;all_four_raw_values_absent_in_logs&quot;: true,
-  &quot;http_status&quot;: 200,
-  &quot;response_id&quot;: &quot;req-aabbccdd&quot;,
-  &quot;response_time_ms&quot;: &quot;2563.39&quot;,
-  &quot;logs&quot;: [
-    {
-      &quot;service&quot;: &quot;api&quot;,
-      &quot;payload&quot;: {
-        &quot;message_preview&quot;: &quot;Email [REDACTED_EMAIL] phone [REDACTED_PHONE_VN] CCCD [REDACTED_CCCD] card [REDA...&quot;
-      },
-      &quot;event&quot;: &quot;request_received&quot;,
-      &quot;env&quot;: &quot;dev&quot;,
-      &quot;feature&quot;: &quot;qa&quot;,
-      &quot;correlation_id&quot;: &quot;req-aabbccdd&quot;,
-      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
-      &quot;user_id_hash&quot;: &quot;14b2e141bf7c&quot;,
-      &quot;session_id&quot;: &quot;pii-check&quot;,
-      &quot;level&quot;: &quot;info&quot;,
-      &quot;ts&quot;: &quot;2026-09-30T03:04:27.414582Z&quot;
-    },
-    {
-      &quot;service&quot;: &quot;api&quot;,
-      &quot;latency_ms&quot;: 2433,
-      &quot;ttft_ms&quot;: 50,
-      &quot;tokens_in&quot;: 41,
-      &quot;tokens_out&quot;: 84,
-      &quot;cost_usd&quot;: 0.001383,
-      &quot;quality_score&quot;: 0.8,
-      &quot;tool_name&quot;: &quot;retrieval&quot;,
-      &quot;tool_success&quot;: true,
-      &quot;payload&quot;: {
-        &quot;answer_preview&quot;: &quot;Starter answer. You should improve this output logic and add better quality chec...&quot;
-      },
-      &quot;event&quot;: &quot;response_sent&quot;,
-      &quot;env&quot;: &quot;dev&quot;,
-      &quot;feature&quot;: &quot;qa&quot;,
-      &quot;correlation_id&quot;: &quot;req-aabbccdd&quot;,
-      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
-      &quot;user_id_hash&quot;: &quot;14b2e141bf7c&quot;,
-      &quot;session_id&quot;: &quot;pii-check&quot;,
-      &quot;level&quot;: &quot;info&quot;,
-      &quot;ts&quot;: &quot;2026-09-30T03:04:29.976113Z&quot;
-    }
-  ]
+<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e7edf6;font:16px Consolas,monospace;padding:30px}h1{font:26px Arial}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}small{color:#a1b6cd}</style><h1>CP1 - Actual response headers and sanitized structured logs</h1><small>Saved runtime output: submission\evidence\cp1\pii-runtime.json | Captured 2026-09-30T03:04:30.203875+00:00</small><pre>{
+  &quot;synthetic_input_scrubbed_for_public_evidence&quot;: &quot;Email [REDACTED_EMAIL] phone [REDACTED_PHONE_VN] CCCD [REDACTED_CCCD] card [REDACTED_CREDIT_CARD]&quot;,
+  &quot;all_four_raw_values_absent_in_logs&quot;: true,
+  &quot;http_status&quot;: 200,
+  &quot;response_id&quot;: &quot;req-aabbccdd&quot;,
+  &quot;response_time_ms&quot;: &quot;2563.39&quot;,
+  &quot;logs&quot;: [
+    {
+      &quot;service&quot;: &quot;api&quot;,
+      &quot;payload&quot;: {
+        &quot;message_preview&quot;: &quot;Email [REDACTED_EMAIL] phone [REDACTED_PHONE_VN] CCCD [REDACTED_CCCD] card [REDA...&quot;
+      },
+      &quot;event&quot;: &quot;request_received&quot;,
+      &quot;env&quot;: &quot;dev&quot;,
+      &quot;feature&quot;: &quot;qa&quot;,
+      &quot;correlation_id&quot;: &quot;req-aabbccdd&quot;,
+      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+      &quot;user_id_hash&quot;: &quot;14b2e141bf7c&quot;,
+      &quot;session_id&quot;: &quot;pii-check&quot;,
+      &quot;level&quot;: &quot;info&quot;,
+      &quot;ts&quot;: &quot;2026-09-30T03:04:27.414582Z&quot;
+    },
+    {
+      &quot;service&quot;: &quot;api&quot;,
+      &quot;latency_ms&quot;: 2433,
+      &quot;ttft_ms&quot;: 50,
+      &quot;tokens_in&quot;: 41,
+      &quot;tokens_out&quot;: 84,
+      &quot;cost_usd&quot;: 0.001383,
+      &quot;quality_score&quot;: 0.8,
+      &quot;tool_name&quot;: &quot;retrieval&quot;,
+      &quot;tool_success&quot;: true,
+      &quot;payload&quot;: {
+        &quot;answer_preview&quot;: &quot;Starter answer. You should improve this output logic and add better quality chec...&quot;
+      },
+      &quot;event&quot;: &quot;response_sent&quot;,
+      &quot;env&quot;: &quot;dev&quot;,
+      &quot;feature&quot;: &quot;qa&quot;,
+      &quot;correlation_id&quot;: &quot;req-aabbccdd&quot;,
+      &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+      &quot;user_id_hash&quot;: &quot;14b2e141bf7c&quot;,
+      &quot;session_id&quot;: &quot;pii-check&quot;,
+      &quot;level&quot;: &quot;info&quot;,
+      &quot;ts&quot;: &quot;2026-09-30T03:04:29.976113Z&quot;
+    }
+  ]
 }</pre>
